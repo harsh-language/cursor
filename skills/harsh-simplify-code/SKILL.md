@@ -3,7 +3,9 @@ name: harsh-simplify-code
 description: >-
   Pre-PR branch simplification forked from ce-simplify-code. Auto-fixes low-risk
   cleanup; asks before changes that could drift Figma UI or feature behavior.
-  Triggers: harsh-simplify-code, pre-PR simplify, safe simplify.
+  After summarize, audits project AGENTS.md / .cursor/rules / .cursor/skills for
+  drift and proposes meta updates (ask before writing). Triggers: harsh-simplify-code,
+  pre-PR simplify, safe simplify, agent guidance gate.
 argument-hint: "[blank for branch diff vs main, or name files/dirs to scope]"
 disable-model-invocation: true
 ---
@@ -12,9 +14,11 @@ disable-model-invocation: true
 
 Safer fork of `ce-simplify-code`. Same scope, three reviewers, and verification — but findings on UI/functionality-risky checkpoints require **user confirmation** before any edit. Low-risk cleanup applies automatically.
 
+After the code pass, runs a short **agent guidance gate**: compare project meta (`AGENTS.md`, rules, skills) to reality and propose updates — **ask before writing**.
+
 Prioritize readable, explicit code over compact solutions. Fewer lines is not the goal.
 
-Load [checkpoint-policy.md](references/checkpoint-policy.md) at Step 2. Example policy validation: [sanity-check-u1-homepage.md](references/sanity-check-u1-homepage.md).
+Load [checkpoint-policy.md](references/checkpoint-policy.md) at Step 2. Example policy validation: [sanity-check-u1-homepage.md](references/sanity-check-u1-homepage.md). Load [agent-guidance-gate.md](references/agent-guidance-gate.md) at Step 6.
 
 ## Step 0: Initialize
 
@@ -156,6 +160,30 @@ Do not headline a net-lines-removed figure.
 
 If freeze rule has entries, note: **ce-simplify not recommended** for flagged UI paths.
 
+Then proceed to Step 6.
+
+## Step 6: Agent guidance gate
+
+Runs on **every** simplify completion after Step 5. Code ask (Step 3b) must be finished first — **never interleave** meta questions with code checkpoint questions. Load [agent-guidance-gate.md](references/agent-guidance-gate.md).
+
+1. **Read project meta** — `AGENTS.md`, all `.cursor/rules/*.mdc`, all `.cursor/skills/*/SKILL.md`. Read-only context when present: `taxonomy.md`, stage / plan notes, `.cursor/rules/harsh-simplify-freeze.mdc`.
+2. **Diff against product truth** — this run’s scope, what just shipped, conventions already in code (tokens, typography, icons, shells). Code is source of truth for components/tokens/styles.
+3. **Propose a short table** — for each item: action (`add` / `update` / `remove` / `keep`), target (`AGENTS.md` | rule path | skill path), one-line why, brief draft summary (not a novel). Use the proposal format in the reference.
+4. **Ask which items to apply** — batch approve/deny on that list. Do not write until the user confirms.
+5. **Write only approved items.** Rules ~under 50 lines, one concern. `AGENTS.md` = facts/pointers, not behavior dumps. New skills = repeatable multi-step processes only.
+6. **Append meta outcome** to the run summary (applied / skipped / none).
+
+**Routing reminder:**
+
+| Signal | Put it in |
+|--------|-----------|
+| Repeated judgment (“always / never”) | `.cursor/rules/*.mdc` |
+| Stable project fact / pointer | `AGENTS.md` |
+| Repeatable multi-step process | Project `.cursor/skills/…` |
+| One-off / obvious from code / volatile | Skip — leave to chat |
+
+If nothing drifted, say so and skip writes.
+
 ## Hard stops
 
 - Never auto-apply any `ask` checkpoint (R1–R3, Q1, Q3, Q6, Q7, E3, T1–T3)
@@ -166,3 +194,8 @@ If freeze rule has entries, note: **ce-simplify not recommended** for flagged UI
 - One user question per turn during ask loop (`frozen` findings do not count)
 - On keep-as-is: append to `.cursor/rules/harsh-simplify-freeze.mdc`
 - Do not invoke `ce-simplify-code` inside this skill
+- Never auto-apply any meta write (`AGENTS.md` / project rules / project skills)
+- Never invent component inventories, style catalogs, or duplicate what the code already is
+- Do not reopen frozen keep-as-is code decisions unless the user asks
+- Project-scoped meta only — do not touch user-level `~/.cursor` skills/rules in this gate
+- Meta ask is **after** Step 5; never interleaved with Step 3b
