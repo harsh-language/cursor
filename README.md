@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-15
+**Last updated:** 2026-07-17
 
 ---
 
@@ -30,6 +30,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-cheatsheet` | Create / update / combine personal cheat sheets in a fixed format |
 | `harsh-simplify-code` | Pre-PR cleanup; asks before risky UI/behavior changes |
 | `harsh-application-blueprint` | Structured product/application blueprint workflow |
+| `harsh-product-design` | Product design for UI work; modes auto-selected; local truth in each project's `docs/product-design/` |
 
 Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`).
 
