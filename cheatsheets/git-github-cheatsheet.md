@@ -6,39 +6,67 @@ Terminal-only (`git` + `gh`). No browser needed.
 
 ## Concepts → meaning → commands
 
+### Where work lives
+
 | Concept | Plain meaning | Command(s) |
 |--------|---------------|------------|
 | **Repo** | Project + full history | `git clone <url>` · `gh repo view` |
 | **Remote** | Shared copy on GitHub | `git remote -v` |
 | **Origin** | Default remote name | `git push origin <branch>` |
 | **Working tree** | Files you're editing now | `git status` |
-| **Untracked** | New files Git doesn't know | shows in `git status` |
-| **Modified** | Changed but not saved in Git | `git diff` |
-| **Staged** | Marked for next snapshot | `git add <file>` · `git diff --staged` |
-| **Commit** | Saved snapshot + message | `git commit -m "message"` |
 | **Branch** | Separate line of work | `git branch` · `git switch -c <name>` |
 | **Main** | Primary/shippable branch | `git switch main` |
 | **HEAD** | "You are here" pointer | `git log -1` |
-| **Push** | Upload commits | `git push` · `git push -u origin <branch>` |
+| **Fork** | Your copy of someone else's repo | `gh repo fork <owner/repo>` |
+| **Tag** | Named release marker in history | `git tag` · `git tag v1.0` |
+| **`.gitignore`** | Files Git should skip | edit file; check with `git status` |
+
+### Status of your changes
+
+| Concept | Plain meaning | Command(s) |
+|--------|---------------|------------|
+| **Untracked** | New files Git doesn't know | shows in `git status` |
+| **Modified** | Changed but not saved in Git | `git diff` |
+| **Staged** | Marked for next snapshot | `git add <file>` · `git diff --staged` |
+| **Commit** | Saved snapshot (local) | `git commit -m "message"` · `git log -1` |
+| **Stash** | WIP shelved for later | `git stash` · `git stash pop` |
+| **Conflict** | Same lines edited twice | resolve → `git add` → `git commit` |
+| **Draft PR** | PR marked WIP — not ready to merge | `gh pr create --draft` · `gh pr ready <num>` |
+
+Local ladder: untracked → modified → staged → commit. Draft PR is the PR-side WIP status.
+
+### What you do
+
+| Concept | Plain meaning | Command(s) |
+|--------|---------------|------------|
+| **Commit** | Save a snapshot + message | `git commit -m "message"` |
+| **Push** | Upload commits to GitHub | `git push` · `git push -u origin <branch>` |
 | **Pull** | Download + merge remote changes | `git pull` |
 | **Fetch** | Download only, don't merge | `git fetch` |
 | **Merge** | Combine branches | `git merge <branch>` |
 | **Rebase** | Replay your commits on top of another branch | `git rebase main` |
-| **Conflict** | Same lines edited twice | resolve file → `git add <file>` → `git commit` |
-| **Diff** | What changed | `git diff` · `git diff main..<branch>` |
-| **Log** | History of commits | `git log --oneline` · `git log --oneline -10` |
+| **Diff** | See what changed | `git diff` · `git diff main..<branch>` |
+| **Log** | See history of commits | `git log --oneline` |
 | **Stash** | Temporarily shelve WIP | `git stash` · `git stash pop` |
-| **Tag** | Named release marker | `git tag` · `git tag v1.0` |
-| **`.gitignore`** | Files Git should skip | edit file; check with `git status` |
-| **Fork** | Your copy of someone else's repo | `gh repo fork <owner/repo>` |
+| **Fork** | Make your own copy of a repo | `gh repo fork <owner/repo>` |
+| **Review** | Approve or request changes on a PR | `gh pr review` |
+| **PR** | Open / list / merge a pull request | `gh pr create` · `gh pr list` · `gh pr merge` |
+| **Release** | Publish a version | `gh release create` |
+
+### GitHub collaboration
+
+| Concept | Plain meaning | Command(s) |
+|--------|---------------|------------|
 | **Issue** | Task/bug ticket | `gh issue list` · `gh issue create` |
 | **PR** | "Please merge my branch" + review | `gh pr create` · `gh pr list` · `gh pr merge` |
-| **Review** | Approve or request changes on PR | `gh pr review` |
-| **Checks / CI** | Automated tests on PR | `gh pr checks` |
 | **Draft PR** | WIP — not ready to merge | `gh pr create --draft` |
+| **Review** | Approve or request changes | `gh pr review` |
+| **Checks / CI** | Automated tests on PR | `gh pr checks` |
 | **Assignee / Reviewer** | Who owns / who must look | `gh pr edit --add-reviewer @user` |
 | **Label** | Category tag on issue/PR | `gh pr edit --add-label design` |
+| **Tag** | Named release marker | `git tag` · `git tag v1.0` |
 | **Release** | Published version on GitHub | `gh release list` · `gh release create` |
+| **Fork** | Your copy of someone else's repo | `gh repo fork <owner/repo>` |
 
 ---
 
