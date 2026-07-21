@@ -48,7 +48,7 @@ Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`, `/harsh-git-sync`).
 | `cursor-rules-agents-skills-cheatsheet.md` | Rules vs AGENTS.md vs skills — what goes where |
 | `git-github-cheatsheet.md` | Git + GitHub CLI (`git` / `gh`) in the terminal |
 
-When you add or rename skills/sheets, update this README and the **Last updated** date.
+When you add or rename skills/sheets, `/harsh-git-sync` refreshes this README automatically (and you can still edit it by hand anytime).
 
 ---
 
