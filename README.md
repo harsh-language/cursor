@@ -34,11 +34,11 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git` | Start local git tracking on the current folder (no GitHub) |
 | `harsh-git-branch` | New branch from `main` (asks for name), or commit-all on the current feature branch |
 | `harsh-git-save` | Land work on local `main` (commit-all; or simplify → merge → delete feature branch) |
-| `harsh-git-sync` | Mirror local git to a private GitHub repo (auto-saves if dirty first) |
+| `harsh-git-sync` | Mirror local git to a private GitHub repo (refreshes README, then auto-saves if dirty) |
 
 Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`, `/harsh-git-sync`).
 
-**Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-save` → `/harsh-git-sync` (or just `/harsh-git-sync`, which saves dirty work first).
+**Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-save` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README and saves dirty work first).
 
 ### Cheat sheets (`cheatsheets/`)
 

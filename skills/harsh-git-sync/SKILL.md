@@ -1,11 +1,12 @@
 ---
 name: harsh-git-sync
 description: >-
-  Mirror local git state to a private GitHub repo (glorified save file). If
-  anything is uncommitted, runs harsh-git-save first. Creates the repo after
-  confirming the name if needed; pushes every local branch; reconciles merged
-  PRs and deletes remote branches gone locally. Use when the user says
-  harsh-git-sync, sync to github, save to github, or push local as mirror.
+  Mirror local git state to a private GitHub repo (glorified save file). Refreshes
+  README.md to match the repo, then runs harsh-git-save if anything is dirty.
+  Creates the repo after confirming the name if needed; pushes every local
+  branch; reconciles merged PRs and deletes remote branches gone locally. Use
+  when the user says harsh-git-sync, sync to github, save to github, or push
+  local as mirror.
 disable-model-invocation: true
 ---
 
@@ -17,7 +18,7 @@ Load shared rules: [../harsh-git/references/shared.md](../harsh-git/references/s
 
 ## Goal
 
-GitHub is a glorified save file: same commits, same branches, merged/closed PRs where local already merged that work, no leftover remote branches that do not exist locally.
+GitHub is a glorified save file: same commits, same branches, merged/closed PRs where local already merged that work, no leftover remote branches that do not exist locally. `README.md` stays an accurate summary of what’s in the repo.
 
 ## Step 0 — Inspect once
 
@@ -33,9 +34,22 @@ git status -sb
 gh auth status
 ```
 
+## Step 0a — Refresh README
+
+Before save/mirror, update `README.md` at the repo root so it accurately summarizes the current repo. Do this every sync, even if other files look clean.
+
+1. Inventory what’s actually here (at least):
+   - `skills/*/SKILL.md` — name + one-line purpose from each skill’s frontmatter `description` or title
+   - `cheatsheets/*` (if present) — filename + topic from the first heading or obvious purpose
+   - Any other top-level folders/docs the README already claims to cover
+2. Rewrite or patch `README.md` so inventories match reality (add new items, remove gone items, fix stale blurbs).
+3. Set **Last updated** to today’s date (local).
+4. Keep the README’s existing voice and structure when one already exists; don’t invent a new doc style. If there is no `README.md`, create a short one with purpose + inventories.
+5. Do **not** ask the user to approve README wording unless something is ambiguous (e.g. two folders could both be “the” inventory).
+
 ## Step 0b — Save first if dirty
 
-If this is a git repo and the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up):
+If this is a git repo and the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up) — including a README change from Step 0a:
 
 1. Run `harsh-git-save` fully — read `~/.cursor/skills/harsh-git-save/SKILL.md` and follow it to completion.
 2. Only then continue bootstrap / mirror.
@@ -91,8 +105,9 @@ If the repo already exists on GitHub but has no local remote, add `origin` to it
 
 ## Done when
 
+- `README.md` matches the current repo inventory
 - Dirty work was saved via `harsh-git-save` first (if any)
 - Every local branch is on `origin`
 - Open PRs for work already on local `main` are merged/closed on GitHub
 - Remote-only branches (except trunk) are gone
-- Brief summary of what was pushed, merged/closed, and deleted
+- Brief summary of what was pushed, merged/closed, deleted, and whether README changed
