@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-21
+**Last updated:** 2026-07-22
 
 ---
 
@@ -27,6 +27,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 
 | Skill | What it’s for |
 |-------|----------------|
+| `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, re-diff in a loop until parity |
 | `harsh-cheatsheet` | Create / update / combine personal cheat sheets in a fixed format |
 | `harsh-simplify-code` | Pre-PR cleanup; asks before risky UI/behavior changes |
 | `harsh-application-blueprint` | Structured product/application blueprint workflow |
@@ -36,7 +37,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git-save` | Land work on local `main` (commit-all; or simplify → merge → delete feature branch) |
 | `harsh-git-sync` | Mirror local git to a private GitHub repo (refreshes README, then auto-saves if dirty) |
 
-Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`, `/harsh-git-sync`).
+Invoke in chat with `/skill-name` (e.g. `/harsh-figma-police`, `/harsh-cheatsheet`, `/harsh-git-sync`).
 
 **Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-save` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README and saves dirty work first).
 
