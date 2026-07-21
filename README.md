@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-17
+**Last updated:** 2026-07-21
 
 ---
 
@@ -31,8 +31,14 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-simplify-code` | Pre-PR cleanup; asks before risky UI/behavior changes |
 | `harsh-application-blueprint` | Structured product/application blueprint workflow |
 | `harsh-product-design` | Product design for UI work; modes auto-selected; local truth in each project's `docs/product-design/` |
+| `harsh-git` | Start local git tracking on the current folder (no GitHub) |
+| `harsh-git-branch` | New branch from `main` (asks for name), or commit-all on the current feature branch |
+| `harsh-git-save` | Land work on local `main` (commit-all; or simplify → merge → delete feature branch) |
+| `harsh-git-sync` | Mirror local git to a private GitHub repo (auto-saves if dirty first) |
 
-Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`).
+Invoke in chat with `/skill-name` (e.g. `/harsh-cheatsheet`, `/harsh-git-sync`).
+
+**Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-save` → `/harsh-git-sync` (or just `/harsh-git-sync`, which saves dirty work first).
 
 ### Cheat sheets (`cheatsheets/`)
 
