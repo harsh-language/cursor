@@ -1,11 +1,11 @@
 ---
 name: harsh-git-sync
 description: >-
-  Mirror local git state to a private GitHub repo (glorified save file). Creates
-  the repo after confirming the name if needed; pushes every local branch;
-  reconciles merged PRs and deletes remote branches gone locally. Use when the
-  user says harsh-git-sync, sync to github, save to github, or push local as
-  mirror.
+  Mirror local git state to a private GitHub repo (glorified save file). If
+  anything is uncommitted, runs harsh-git-save first. Creates the repo after
+  confirming the name if needed; pushes every local branch; reconciles merged
+  PRs and deletes remote branches gone locally. Use when the user says
+  harsh-git-sync, sync to github, save to github, or push local as mirror.
 disable-model-invocation: true
 ---
 
@@ -21,12 +21,26 @@ GitHub is a glorified save file: same commits, same branches, merged/closed PRs 
 
 ## Step 0 — Inspect once
 
+Prefer the project workspace root (e.g. the opened folder), not `$HOME`. Confirm with `pwd` and `git rev-parse --show-toplevel` before acting.
+
 ```bash
+pwd
+git rev-parse --show-toplevel
 git rev-parse --is-inside-work-tree
 git remote -v
 git branch --format='%(refname:short)'
+git status -sb
 gh auth status
 ```
+
+## Step 0b — Save first if dirty
+
+If this is a git repo and the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up):
+
+1. Run `harsh-git-save` fully — read `~/.cursor/skills/harsh-git-save/SKILL.md` and follow it to completion.
+2. Only then continue bootstrap / mirror.
+
+If the tree is clean, skip save and continue.
 
 ## Bootstrap — not a git repo
 
@@ -77,6 +91,7 @@ If the repo already exists on GitHub but has no local remote, add `origin` to it
 
 ## Done when
 
+- Dirty work was saved via `harsh-git-save` first (if any)
 - Every local branch is on `origin`
 - Open PRs for work already on local `main` are merged/closed on GitHub
 - Remote-only branches (except trunk) are gone
