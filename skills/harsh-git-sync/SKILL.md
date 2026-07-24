@@ -2,7 +2,7 @@
 name: harsh-git-sync
 description: >-
   Mirror local git state to a private GitHub repo (glorified save file). Refreshes
-  README.md to match the repo, then runs harsh-git-save if anything is dirty.
+  README.md to match the repo, then runs harsh-git-main if anything is dirty.
   Creates the repo after confirming the name if needed; pushes every local
   branch; reconciles merged PRs and deletes remote branches gone locally. Use
   when the user says harsh-git-sync, sync to github, save to github, or push
@@ -51,7 +51,7 @@ Before save/mirror, update `README.md` at the repo root so it accurately summari
 
 If this is a git repo and the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up) — including a README change from Step 0a:
 
-1. Run `harsh-git-save` fully — read `~/.cursor/skills/harsh-git-save/SKILL.md` and follow it to completion.
+1. Run `harsh-git-main` fully — read `~/.cursor/skills/harsh-git-main/SKILL.md` and follow it to completion.
 2. Only then continue bootstrap / mirror.
 
 If the tree is clean, skip save and continue.
@@ -106,7 +106,7 @@ If the repo already exists on GitHub but has no local remote, add `origin` to it
 ## Done when
 
 - `README.md` matches the current repo inventory
-- Dirty work was saved via `harsh-git-save` first (if any)
+- Dirty work was saved via `harsh-git-main` first (if any)
 - Every local branch is on `origin`
 - Open PRs for work already on local `main` are merged/closed on GitHub
 - Remote-only branches (except trunk) are gone
