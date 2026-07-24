@@ -1,11 +1,6 @@
 ---
 name: harsh-figma-police
-description: >-
-  Enter Figma Police mode: lock a specific UI target from a shared Figma link,
-  map every visual difference vs the implemented code, fix all diffs, then
-  re-diff and fix in a loop until Figma and code match. Use when the user says
-  harsh-figma-police, Figma Police, police mode, Figma parity loop, or wants
-  Cursor to stop missing Figma details after the first pass.
+description: Lock a Figma UI target, map diffs vs code, fix, and re-diff until parity.
 disable-model-invocation: true
 ---
 

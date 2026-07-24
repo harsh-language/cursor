@@ -1,11 +1,6 @@
 ---
 name: harsh-application-blueprint
-description: >-
-  Creates a complete Application Blueprint (product spec) via elicitation until 18
-  sections, completion criteria, and taxonomy.md are done — including UI. On approval,
-  auto-runs ce-plan for MVP (Phase 1 per §18) unless auto_plan is false. Triggers:
-  application blueprint, product blueprint, blueprint this app, complete the spec,
-  partial product context. No application code during elicitation; optional GitHub setup after §9.
+description: Elicit a full Application Blueprint (18 sections + taxonomy.md); optional MVP plan on approval.
 disable-model-invocation: true
 ---
 

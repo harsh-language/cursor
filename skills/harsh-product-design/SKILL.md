@@ -1,15 +1,6 @@
 ---
 name: harsh-product-design
-description: >-
-  Single entry point for product design and user-facing product implementation
-  in any project repo. Use whenever work changes what a user sees, understands,
-  chooses, or does: shaping flows; building or redesigning screens, sheets, and
-  components (including when Figma is full, partial, or missing); reviewing
-  diffs or UI behavior; improving copy, hierarchy, layout, interaction,
-  accessibility, states, and resilience. Bootstraps docs/product-design/ when
-  missing. Modes are internal — pick them automatically from the request; the
-  user never names a mode. Not for backend-only work, config, docs, or tests
-  with no shipped UI impact.
+description: Product design and user-facing UI work; auto-picks modes; keeps truth in docs/product-design/.
 ---
 
 # Harsh Product Design

@@ -1,12 +1,6 @@
 ---
 name: harsh-git-sync
-description: >-
-  Mirror local git state to a private GitHub repo (glorified save file). Refreshes
-  README.md to match the repo, then runs harsh-git-main if anything is dirty.
-  Creates the repo after confirming the name if needed; pushes every local
-  branch; reconciles merged PRs and deletes remote branches gone locally. Use
-  when the user says harsh-git-sync, sync to github, save to github, or push
-  local as mirror.
+description: Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches).
 disable-model-invocation: true
 ---
 

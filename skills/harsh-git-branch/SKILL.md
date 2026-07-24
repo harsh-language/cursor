@@ -1,10 +1,6 @@
 ---
 name: harsh-git-branch
-description: >-
-  Create a local experiment branch from main, or checkpoint-commit all work on
-  the current feature branch. Asks for branch name only when on main. Use when
-  the user says harsh-git-branch, new branch, start experiment branch, or
-  checkpoint this branch.
+description: On main, create a named experiment branch; on a feature branch, checkpoint-commit all work.
 disable-model-invocation: true
 ---
 

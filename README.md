@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-22
+**Last updated:** 2026-07-25
 
 ---
 
@@ -27,15 +27,15 @@ This repo is the **source of truth** for that personal kit — everything I want
 
 | Skill | What it’s for |
 |-------|----------------|
-| `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, re-diff in a loop until parity |
-| `harsh-cheatsheet` | Create / update / combine personal cheat sheets in a fixed format |
-| `harsh-simplify-code` | Pre-PR cleanup; asks before risky UI/behavior changes |
-| `harsh-application-blueprint` | Structured product/application blueprint workflow |
-| `harsh-product-design` | Product design for UI work; modes auto-selected; local truth in each project's `docs/product-design/` |
-| `harsh-git` | Start local git tracking on the current folder (no GitHub) |
-| `harsh-git-branch` | New branch from `main` (asks for name), or commit-all on the current feature branch |
-| `harsh-git-main` | Land work on local `main` (commit-all; or simplify → merge → delete feature branch) |
-| `harsh-git-sync` | Mirror local git to a private GitHub repo (refreshes README, then auto-saves if dirty) |
+| `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, and re-diff until parity |
+| `harsh-cheatsheet` | Create, update, or combine personal cheat sheets in `~/.cursor/cheatsheets/` |
+| `harsh-simplify-code` | Pre-PR cleanup; auto-fixes low-risk stuff, asks before UI/behavior-risk changes |
+| `harsh-application-blueprint` | Elicit a full Application Blueprint (18 sections + `taxonomy.md`); optional MVP plan on approval |
+| `harsh-product-design` | Product design and user-facing UI work; auto-picks modes; truth in `docs/product-design/` |
+| `harsh-git` | Initialize local git tracking on the current folder (no GitHub) |
+| `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
+| `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
+| `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches) |
 
 Invoke in chat with `/skill-name` (e.g. `/harsh-figma-police`, `/harsh-cheatsheet`, `/harsh-git-sync`).
 

@@ -1,9 +1,6 @@
 ---
 name: harsh-git
-description: >-
-  Initialize local git tracking on the current folder for a solo designer
-  workflow. If already a git repo, informs and stops. Use when the user says
-  harsh-git, start git, init git, or wants git tracking without GitHub setup.
+description: Initialize local git tracking on the current folder (no GitHub).
 disable-model-invocation: true
 ---
 

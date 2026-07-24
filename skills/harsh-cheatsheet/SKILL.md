@@ -1,11 +1,6 @@
 ---
 name: harsh-cheatsheet
-description: >-
-  Creates, updates, or combines personal cheat sheets in ~/.cursor/cheatsheets/
-  using a fixed format (scope line, intent tables, 30-second guide, date footer).
-  Use when the user asks for a cheat sheet, invokes harsh-cheatsheet, wants to
-  create/update/refresh/combine a *cheatsheet*, or points at an existing
-  ~/.cursor/cheatsheets/* file.
+description: Create, update, or combine personal cheat sheets in ~/.cursor/cheatsheets/.
 argument-hint: "[topic, path to existing sheet, or blank to inventory]"
 disable-model-invocation: true
 ---

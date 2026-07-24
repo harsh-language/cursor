@@ -1,10 +1,6 @@
 ---
 name: harsh-git-main
-description: >-
-  Fold local work into main: on main, commit-all; on a feature branch, optional
-  harsh-simplify-code then commit-all, merge into main, delete the feature
-  branch. Use when the user says harsh-git-main, save to main, merge branch to
-  main, or land this work on main.
+description: On main, commit-all; on a feature branch, optional simplify then merge into main and delete the branch.
 disable-model-invocation: true
 ---
 

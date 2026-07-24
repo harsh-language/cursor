@@ -1,11 +1,6 @@
 ---
 name: harsh-simplify-code
-description: >-
-  Pre-PR branch simplification forked from ce-simplify-code. Auto-fixes low-risk
-  cleanup; asks before changes that could drift Figma UI or feature behavior.
-  After summarize, audits project AGENTS.md / .cursor/rules / .cursor/skills for
-  drift and proposes meta updates (ask before writing). Triggers: harsh-simplify-code,
-  pre-PR simplify, safe simplify, agent guidance gate.
+description: Pre-PR cleanup that auto-fixes low-risk stuff and asks before UI/behavior-risk changes.
 argument-hint: "[blank for branch diff vs main, or name files/dirs to scope]"
 disable-model-invocation: true
 ---
