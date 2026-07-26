@@ -1,0 +1,19 @@
+---
+description: Never treat one empty search as proof of absence; dual-verify before claiming missing
+alwaysApply: true
+---
+
+# Search Verification (No False Absences)
+
+When searching a repo or filesystem, factual correctness beats speed.
+
+## Hard rules
+
+1. **Never treat one empty search as proof of absence.** An empty Glob, Grep, or similar result is inconclusive — not evidence that a path, file, folder, or symbol does not exist.
+2. **Confirm absence with at least two independent methods** before claiming something is missing. Valid pairs include:
+   - Glob/Grep **and** `ls` / directory listing
+   - Glob/Grep **and** `git ls-files`
+   - Glob/Grep **and** a direct `Read` of the named path
+3. **If AGENTS.md, docs, git history, or the user names a path — open that path before contradicting them.** Authority of a named path beats an empty search tool result.
+4. **Only report "not found" after the second method also fails.** If methods disagree, prefer the method that found evidence and state the conflict briefly.
+5. **Do not invent absence.** Wrong "missing" claims waste user time and money; when uncertain, verify further instead of answering.

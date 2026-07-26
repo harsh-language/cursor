@@ -1,5 +1,5 @@
 ---
-name: apple-design
+name: ek-apple-design
 description: Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.
 ---
 
@@ -33,6 +33,8 @@ The moment lag appears, the feeling of directness "falls off a cliff." Response 
 }
 ```
 
+
+
 ## 2. Direct manipulation — 1:1 tracking
 
 > "Touch and content should move together."
@@ -50,6 +52,8 @@ el.addEventListener('pointerdown', (e) => {
 });
 ```
 
+
+
 ## 3. Interruptibility — the single most important principle
 
 > "The thought and the gesture happen in parallel."
@@ -58,9 +62,11 @@ Every animation must be interruptible and redirectable at any moment. A user mus
 
 - **Never lock out input during a transition.**
 - **Always animate from the *presentation* (current) value, never the target value.** On interrupt, read the element's live on-screen transform and start the new animation from there. Starting from the logical/target value causes a visible jump.
-- **Avoid CSS transitions and `@keyframes` for anything gesture-driven** — they can't be smoothly grabbed and reversed mid-flight. Springs animate from the current value by default, which is exactly what interruption needs.
+- **Avoid CSS transitions and** `@keyframes` **for anything gesture-driven** — they can't be smoothly grabbed and reversed mid-flight. Springs animate from the current value by default, which is exactly what interruption needs.
 - **When a gesture reverses, blend velocity — don't hard-cut it.** Replacing one animation with another at a reversal creates a velocity discontinuity, a "brick wall." Spring libraries that carry velocity through a re-target avoid it. (This is what iOS's *additive animations* do natively; on the web, choose a spring library that re-targets from the current velocity.)
 - **Decompose 2D motion into independent X and Y springs.** A single spring on a 2D distance desyncs when X and Y have different velocities.
+
+
 
 ## 4. Behavior over animation — use springs
 
@@ -74,16 +80,19 @@ Apple deliberately replaced the physics triplet (mass/stiffness/damping) with tw
 - **Response** — how quickly the value reaches the target, in seconds. Lower = snappier. **This is not "duration"** — a spring has no fixed duration; its settle time emerges from the parameters.
 
 **Defaults:**
-- Start most UI at **damping `1.0`** (critically damped) — graceful and non-distracting.
+
+- Start most UI at **damping** `1.0` (critically damped) — graceful and non-distracting.
 - Add bounce (**damping ~`0.8`**) **only when the gesture itself carried momentum** (a flick, a throw, a drag release). Overshoot on a menu that just faded in feels wrong; overshoot on a card you flicked feels right.
 
 **Concrete values Apple ships:**
 
-| Interaction | Damping | Response |
-| --- | --- | --- |
-| Move / reposition (e.g. PiP) | `1.0` | `0.4` |
-| Rotation | `0.8` | `0.4` |
-| Drawer / sheet | `0.8` | `0.3` |
+
+| Interaction                  | Damping | Response |
+| ---------------------------- | ------- | -------- |
+| Move / reposition (e.g. PiP) | `1.0`   | `0.4`    |
+| Rotation                     | `0.8`   | `0.4`    |
+| Drawer / sheet               | `0.8`   | `0.3`    |
+
 
 **Web mapping (Motion / Framer Motion):** the `bounce` + `duration` spring API maps closely to Apple's damping + response. A safe house style is `damping: 1.0` springs everywhere by default; reserve bounce for momentum-driven, physical interactions.
 
@@ -96,6 +105,8 @@ animate(el, { y: 0 }, { type: 'spring', bounce: 0, duration: 0.4 });
 // Momentum interaction — a little bounce, only because a flick preceded it
 animate(el, { y: target }, { type: 'spring', bounce: 0.2, duration: 0.4 });
 ```
+
+
 
 ## 5. Velocity handoff — the seam between drag and animation
 
@@ -138,6 +149,8 @@ Note: the physics-textbook `v²/(2·decel)` is *not* what Apple ships — use th
 - **Anchor interactions to their source.** A menu, popover, or sheet should originate from the element that triggered it — set `transform-origin` to the trigger, so the spatial relationship between button and content is obvious. (This is the same origin-awareness point as popovers scaling from their trigger, not their center.)
 - **Mirror the easing on reversible transitions** so the outbound path matches the return path (use inverse cubic-bézier control points for the two directions).
 
+
+
 ## 8. Hint in the direction of the gesture
 
 Humans predict a final state from a trajectory. Intermediate motion should telegraph where things are going — Control Center modules "grow up and out toward your finger." Make the in-between frames point at the outcome, not just interpolate blindly to it.
@@ -153,12 +166,16 @@ function rubberband(overshoot, dimension, constant = 0.55) {
 }
 ```
 
+
+
 ## 10. Gesture design details (the "feel" checklist)
 
 - **Tap:** highlight on touch-*down* (instant), commit on touch-*up*. Add ~10px of hysteresis/hit padding around the target, and allow cancel-by-dragging-away and back.
 - **Drag/swipe:** require a small movement threshold (hysteresis, ~10px) before committing to a direction, then track 1:1.
 - **Detect all plausible gestures in parallel from the first move**, then confidently cancel the losers once intent is clear. Avoid recognizers that only report a *final* state (`swipeleft`-type events) — they throw away the continuous tracking you need for feedback.
 - **Minimize disambiguation delays.** Double-tap detection unavoidably delays single taps; only pay that cost where double-tap truly exists.
+
+
 
 ## 11. Frame-level smoothness
 
@@ -167,6 +184,8 @@ Smoothness is about *what's in the frames*, not just the frame rate.
 - Keep the per-frame positional change below the perception threshold to avoid strobing.
 - For very fast motion, a subtle **motion blur / stretch** encodes speed and reads better than a hard sharp streak.
 - `requestAnimationFrame` is the web's display-synced clock (Apple uses `CADisplayLink`). Animate only compositor-friendly properties — `transform` and `opacity` — and hint with `will-change` where motion is imminent.
+
+
 
 ## 12. Materials & depth — translucency conveys hierarchy
 
@@ -188,6 +207,8 @@ Apple uses translucent materials as a floating functional layer that brings stru
 }
 ```
 
+
+
 ## 13. Multimodal feedback — motion + sound + haptics
 
 Three rules for combining senses (from *Designing Audio-Haptic Experiences*):
@@ -196,13 +217,15 @@ Three rules for combining senses (from *Designing Audio-Haptic Experiences*):
 2. **Harmony** — the visual, the sound, and the haptic must fire on the **same frame**. Latency between them destroys the illusion. Don't let a CSS transition lag the audio/haptic (Vibration API).
 3. **Utility** — add feedback only where it earns its place. Reserve haptics/sound for meaningful moments (success, error, commit, snap). Over-feedback trains users to ignore all of it.
 
+
+
 ## 14. Reduced motion & accessibility
 
 Reduced motion doesn't mean *no* feedback — it means a gentler, non-vestibular equivalent. Respond to three independent signals and bake them into your components:
 
-- **`prefers-reduced-motion: reduce`** — replace slides/springs/parallax with short opacity **cross-fades or static transitions**. Drop elastic/overshoot. Keep opacity/color changes that aid comprehension.
-- **`prefers-reduced-transparency: reduce`** — make translucent surfaces frostier/solid: raise background opacity, drop the blur.
-- **`prefers-contrast: more`** — near-solid backgrounds with a defined, contrasting border.
+- `prefers-reduced-motion: reduce` — replace slides/springs/parallax with short opacity **cross-fades or static transitions**. Drop elastic/overshoot. Keep opacity/color changes that aid comprehension.
+- `prefers-reduced-transparency: reduce` — make translucent surfaces frostier/solid: raise background opacity, drop the blur.
+- `prefers-contrast: more` — near-solid backgrounds with a defined, contrasting border.
 
 Also: avoid full-viewport moving backgrounds, slow looping oscillations (near 0.2 Hz / one cycle per 5s), and abrupt brightness jumps (ease dark↔light theme changes). Make large moving objects semi-transparent while they travel, and fade big surfaces out during a large reposition and back in once settled.
 
@@ -214,6 +237,8 @@ Also: avoid full-viewport moving backgrounds, slow looping oscillations (near 0.
   .toolbar { background: white; backdrop-filter: none; }
 }
 ```
+
+
 
 ## 15. Typography — optical sizing, tracking, leading
 
@@ -236,6 +261,8 @@ Apple designs type to change shape with size; the same discipline applies on the
 }
 ```
 
+
+
 ## 16. Design foundations — the eight principles
 
 The motion and craft above serve Apple's eight design principles (*Principles of Great Design*, WWDC 2026). Use these as the names you reason with:
@@ -256,27 +283,34 @@ Tactical rules that serve these:
 - **Grouping & mapping.** Proximity implies relationship; place a control near what it affects and arrange controls to mirror what they change. If you need a label to explain a control, the mapping is weak.
 - **Direct, specific labels beat safe generic ones.** Name nav items for their contents ("Progress", "Library"), not vague umbrellas ("Home"). Specificity creates predictability.
 
+
+
 ## 17. Process
 
 - **Prototype interactively — an interactive demo is worth "a million static designs."** You discover the interface by building and playing with it; a working prototype also sets a concrete bar that prevents a mediocre final implementation.
 - **Design interaction and visuals together.** "You shouldn't be able to tell where one ends and the other begins." Motion is not a layer added after the pixels.
 - **Test with real people in real context**, and review motion with fresh eyes — play it in slow motion / frame-by-frame to catch what's invisible at full speed.
 
+
+
 ## Quick Reference
 
-| Need | Technique | Concrete value |
-| --- | --- | --- |
-| Default UI spring | Critically damped, no overshoot | `damping 1.0`, `response 0.3–0.4` |
-| Momentum / flick spring | Under-damped, slight bounce | `damping ~0.8`, `response 0.3–0.4` |
-| Gesture → spring velocity | Hand off release velocity | `gestureVelocity / (target − current)` if normalized |
-| Flick landing point | Project momentum | `current + (v/1000)·d/(1−d)`, `d ≈ 0.998` |
-| Interrupt cleanly | Start from presentation (live) value | read the on-screen transform |
-| Avoid reversal "brick wall" | Carry velocity through re-target | spring that blends velocity |
-| Reversible transition | Mirror the easing curve | inverse cubic-bézier |
-| Decide reverse vs. commit | Use velocity **sign**, not position | at release |
-| 1:1 drag | Pointer Events + capture | respect the grab offset |
-| Feedback | On pointer-down, continuous | never only at the end |
-| Boundary | Rubber-band, don't hard-stop | progressive resistance |
-| Translucent chrome | `backdrop-filter` layer | content scrolls under |
-| Type tracking | Size-specific, never fixed | tighten large text (`-0.02em`), body near `0` |
-| Reduced motion | Cross-fade, not slide/spring | `@media (prefers-reduced-motion)` |
+
+| Need                        | Technique                            | Concrete value                                       |
+| --------------------------- | ------------------------------------ | ---------------------------------------------------- |
+| Default UI spring           | Critically damped, no overshoot      | `damping 1.0`, `response 0.3–0.4`                    |
+| Momentum / flick spring     | Under-damped, slight bounce          | `damping ~0.8`, `response 0.3–0.4`                   |
+| Gesture → spring velocity   | Hand off release velocity            | `gestureVelocity / (target − current)` if normalized |
+| Flick landing point         | Project momentum                     | `current + (v/1000)·d/(1−d)`, `d ≈ 0.998`            |
+| Interrupt cleanly           | Start from presentation (live) value | read the on-screen transform                         |
+| Avoid reversal "brick wall" | Carry velocity through re-target     | spring that blends velocity                          |
+| Reversible transition       | Mirror the easing curve              | inverse cubic-bézier                                 |
+| Decide reverse vs. commit   | Use velocity **sign**, not position  | at release                                           |
+| 1:1 drag                    | Pointer Events + capture             | respect the grab offset                              |
+| Feedback                    | On pointer-down, continuous          | never only at the end                                |
+| Boundary                    | Rubber-band, don't hard-stop         | progressive resistance                               |
+| Translucent chrome          | `backdrop-filter` layer              | content scrolls under                                |
+| Type tracking               | Size-specific, never fixed           | tighten large text (`-0.02em`), body near `0`        |
+| Reduced motion              | Cross-fade, not slide/spring         | `@media (prefers-reduced-motion)`                    |
+
+

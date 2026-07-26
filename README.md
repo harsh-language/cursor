@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-26
+**Last updated:** 2026-07-27
 
 ---
 
@@ -14,6 +14,7 @@ It does **not** sync the personal stuff that lives in a folder on your computer:
 
 - **Skills** — reusable “how to do this job” playbooks you invoke in chat (e.g. `/harsh-cheatsheet`)
 - **Cheat sheets** — short reference docs you keep open or point the agent at
+- **Rules** — always-on agent constraints (e.g. search verification)
 
 Those live under `~/.cursor/` on whichever computer you’re on. A new laptop (or a cloud workspace) won’t magically get them when you log in.
 
@@ -36,14 +37,14 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
 | `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
 | `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches) |
-| `emil-design-eng` | Emil Kowalski design-eng taste: UI polish, animation decisions, invisible details |
-| `review-animations` | Strict review of animation/motion code against Emil’s craft bar |
-| `improve-animations` | Audit motion in a codebase; prioritized, self-contained fix plans |
-| `find-animation-opportunities` | Find places that should (and shouldn’t) animate; propose recipes |
-| `animation-vocabulary` | Name a motion effect from a vague description (“what’s it called when…”) |
-| `apple-design` | Apple interface + fluid motion principles, translated for the web |
-| `pick-ui-library` | Pick a trusted library for a frontend task instead of hand-rolling |
-| `writing-skills` | Emil’s AI for UI course skill for writing/authoring Cursor skills |
+| `ek-emil-design-eng` | Emil Kowalski design-eng taste: UI polish, animation decisions, invisible details |
+| `ek-review-animations` | Strict review of animation/motion code against Emil’s craft bar |
+| `ek-improve-animations` | Audit motion in a codebase; prioritized, self-contained fix plans |
+| `ek-find-animation-opportunities` | Find places that should (and shouldn’t) animate; propose recipes |
+| `ek-animation-vocabulary` | Name a motion effect from a vague description (“what’s it called when…”) |
+| `ek-apple-design` | Apple interface + fluid motion principles, translated for the web |
+| `ek-pick-ui-library` | Pick a trusted library for a frontend task instead of hand-rolling |
+| `writing-skills` | Write/refine skill files so they change agent behavior (process, why, strict, focused) |
 
 Invoke in chat with `/skill-name` (e.g. `/harsh-figma-police`, `/harsh-cheatsheet`, `/harsh-git-sync`).
 
@@ -57,7 +58,13 @@ Invoke in chat with `/skill-name` (e.g. `/harsh-figma-police`, `/harsh-cheatshee
 | `cursor-rules-agents-skills-cheatsheet.md` | Rules vs AGENTS.md vs skills — what goes where |
 | `git-github-cheatsheet.md` | Git + GitHub CLI (`git` / `gh`) in the terminal |
 
-When you add or rename skills/sheets, `/harsh-git-sync` refreshes this README automatically (and you can still edit it by hand anytime).
+### Rules (`rules/`)
+
+| File | Topic |
+|------|--------|
+| `search-verification.mdc` | Never treat one empty search as proof of absence; dual-verify before claiming missing |
+
+When you add or rename skills/sheets/rules, `/harsh-git-sync` refreshes this README automatically (and you can still edit it by hand anytime).
 
 ---
 
