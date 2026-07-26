@@ -116,7 +116,7 @@ Before each fix, confirm it preserves behavior: same output for every input, sam
 
 For each `ask`-tagged finding **not** tagged `frozen`, **one question per turn**:
 
-- Show: checkpoint ID, file, snippet, proposed change
+- Ask in plain language. Describe which part of the screen/component is affected and what would change, using everyday words — not variable, style, or function names.
 - Options: **apply** / **keep as-is** / **extract to named rule + test** (preferred for Q3, Q6, T1–T3)
 - Do not batch multiple ask items in one question
 
