@@ -6,9 +6,10 @@ Load once at Phase 0.
 
 | Path | Role |
 |------|------|
-| `docs/application-blueprint/blueprint.md` | 18-section spec |
+| `docs/application-blueprint/blueprint.md` | **One meta doc** — 18-section blueprint + roadmap/stages |
 | `docs/application-blueprint/blueprint-status.yaml` | Agent tracker |
 | `taxonomy.md` | Human summary at repo root (only human doc at root) |
+| `docs/plans/*.md` | Per-stage plans from `ce-plan` (Stage 1+ only) |
 
 ## blueprint-status.yaml (minimal)
 
@@ -17,9 +18,11 @@ phase: in_progress
 product_name: ""
 completion_pct: 0
 taxonomy_status: not_started  # draft | current
-auto_plan: true  # false = approve blueprint only; no auto ce-plan
-implementation_plan_path: null
-implementation_plan_scope: null  # mvp | full
+stage0_status: in_progress  # in_progress | complete
+roadmap_mapped: false
+next_build_stage: null
+current_stage_plan_path: null
+stage_plans: {}  # stage_id → docs/plans/<file>.md
 next_section: product_overview
 ui_block_mode: null
 sections:  # each: not_started | partial | blocked | complete
@@ -54,7 +57,7 @@ completion_criteria_pass: false
 approved_at: null
 ```
 
-Full blueprint headings: [blueprint-template.md](blueprint-template.md).
+Full meta doc headings: [blueprint-template.md](blueprint-template.md).
 
 ## Taxonomy distill
 

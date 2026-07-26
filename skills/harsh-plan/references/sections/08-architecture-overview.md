@@ -25,4 +25,4 @@ Major boundaries identified. Data flow from user action to storage and back is t
 
 ## Note
 
-High-level only here. Detailed HOW belongs in `ce-plan` after blueprint approval.
+High-level only here. Detailed HOW belongs in per-stage `ce-plan` when that stage starts (after Stage 0).

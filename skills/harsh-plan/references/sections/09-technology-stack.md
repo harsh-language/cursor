@@ -30,6 +30,6 @@ Every major layer (UI, logic, storage, build/deploy if known) has a choice and r
 
 ## Note
 
-`ce-plan` may refine stack details after approval; blueprint must capture product-relevant constraints (platforms, offline, etc.).
+Per-stage `ce-plan` may refine stack details when building; the meta doc must capture product-relevant constraints (platforms, offline, etc.).
 
 After §9 completes with `github_remote: yes`, load [github-remote-setup.md](../github-remote-setup.md) before §10.

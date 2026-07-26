@@ -1,6 +1,6 @@
-# Blueprint Template
+# Meta doc template (blueprint + roadmap)
 
-Copy to `docs/application-blueprint/blueprint.md` on first run.
+Copy to `docs/application-blueprint/blueprint.md` on first run. This is the **one** planning document — Stage 0 discovery and Stage 1+ roadmap live here.
 
 ```markdown
 ---
@@ -10,12 +10,12 @@ status: draft
 created:
 last_updated:
 approved:
-design_references: []
+design_references: []  # file-level ok as index; prefer per-screen/frame links in §4 / §11 / §18
 ---
 
 # Application Blueprint: [Product Name]
 
-> Platform-neutral spec: everything required to design, build, test, and maintain this application.
+> One meta doc: product spec + implementation roadmap. Stage 0 = discovery; Stage 1+ confirmed after approval; each later stage starts with ce-plan.
 
 ## 1. Product Overview
 
@@ -35,7 +35,7 @@ design_references: []
 
 ## 4. Information Architecture
 
-<!-- SCR* IDs; sitemap; hierarchy -->
+<!-- SCR* IDs; sitemap; hierarchy; per-screen design frame/section link when known -->
 
 ## 5. Data Model
 
@@ -72,6 +72,8 @@ design_references: []
 <!-- T* IDs linked to BR* and FL* -->
 
 ## 18. Implementation Roadmap
+
+<!-- Stage 0 = this discovery. After approval: Stage 1+ with deliverables, done-when, design links -->
 
 ## Outstanding Questions
 

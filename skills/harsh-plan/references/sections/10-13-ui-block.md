@@ -52,6 +52,10 @@ Load this file once for the entire UI block. Mark each key complete only when it
 
 **Design artifact present (Figma/FigJam/Paper):** One pass — extract tokens, components, nav, interactions; present coverage report; ask user to confirm or fill gaps. Up to 3 coupled questions per turn within this block.
 
-**No design artifact:** Walk §10 → §11 → §12 → §13 in order, one question per turn.
+**Frame/section links (required):** For each screen (SCR*) or designed feature that needs UI, ask for a **specific** Figma/FigJam/Paper frame or section link. Store it next to that screen/feature in the meta doc (IA table, component rows, or a Design references table). A file-level link alone is not enough. These links carry into each Stage 1+ `ce-plan` scope.
+
+**No design artifact:** Walk §10 → §11 → §12 → §13 in order, one question per turn. Still ask where designs will live when known.
 
 **Figma MCP:** Read variables/styles/components; never write tokens the user has not confirmed.
+
+**Built work wins:** If designs change after a stage ships, update or remove stale links so the meta doc matches what is being built.

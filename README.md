@@ -30,7 +30,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, and re-diff until parity |
 | `harsh-cheatsheet` | Create, update, or combine personal cheat sheets in `~/.cursor/cheatsheets/` |
 | `harsh-simplify-code` | Pre-PR cleanup; auto-fixes low-risk stuff, asks before UI/behavior-risk changes |
-| `harsh-application-blueprint` | Elicit a full Application Blueprint (18 sections + `taxonomy.md`); optional MVP plan on approval |
+| `harsh-plan` | Stage 0 discovery into one blueprint+roadmap doc; per-stage `ce-plan` for builds |
 | `harsh-product-design` | Product design and user-facing UI work; auto-picks modes; truth in `docs/product-design/` |
 | `harsh-git` | Initialize local git tracking on the current folder (no GitHub) |
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
