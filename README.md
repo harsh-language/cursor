@@ -37,7 +37,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
 | `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
 | `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches) |
-| `ek-emil-design-eng` | Emil Kowalski design-eng taste: UI polish, animation decisions, invisible details |
+| `ek-design-eng` | Emil Kowalski design-eng taste: UI polish, animation decisions, invisible details |
 | `ek-review-animations` | Strict review of animation/motion code against Emil’s craft bar |
 | `ek-improve-animations` | Audit motion in a codebase; prioritized, self-contained fix plans |
 | `ek-find-animation-opportunities` | Find places that should (and shouldn’t) animate; propose recipes |
