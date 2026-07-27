@@ -51,6 +51,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `ek-animation-vocabulary` | Name a motion effect from a vague description (“what’s it called when…”) |
 | `ek-apple-design` | Apple interface + fluid motion principles, translated for the web |
 | `ek-pick-ui-library` | Pick a trusted library for a frontend task instead of hand-rolling |
+| `ek-prototype` | Build UI variants behind a live picker; promote the winner (manual only) |
 
 **Design engineering (`ek2-*`)** — full UI craft suite (animations.dev course)
 

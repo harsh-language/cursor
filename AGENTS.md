@@ -28,7 +28,7 @@ When renaming a skill folder, always update `name:` in `SKILL.md` to match.
 ### Skill groups
 
 - **Workflow** — `harsh-*` (9 skills): git loop, Figma parity, product design, cheatsheets
-- **Motion** — `ek-*` (7 skills): animation taste, review, audit, vocabulary, Apple design, library picking
+- **Motion** — `ek-*` (8 skills): animation taste, review, audit, vocabulary, Apple design, library picking, prototyping
 - **Design engineering** — `ek2-*` (15 skills): typography, color, surfaces, forms, performance, UI review, and more
 
 When adding skills from external sources, keep the source prefix (`ek-`, `ek2-`) to avoid name collisions.
