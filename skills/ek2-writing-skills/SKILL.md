@@ -1,6 +1,7 @@
 ---
-name: writing-skills
-description: How to write skill files that actually change what an agent does — encode process not output, pair every rule with its why, be strict instead of vague, cut lines that don't change behavior, keep skills focused, and test by running. Use when creating a new SKILL.md, reviewing or refining an existing skill, packaging taste or conventions into a reusable skill file, or diagnosing why a skill isn't affecting the agent's output. Triggers on: skill, SKILL.md, skill file, write a skill, create a skill, improve a skill, agent instructions, CLAUDE.md, AGENTS.md, system prompt rules, taste, conventions, decision tree, "the agent ignores my skill", "skill doesn't work", package my preferences, transfer taste.
+name: ek2-writing-skills
+description: |
+  How to write skill files that actually change what an agent does — encode process not output, pair every rule with its why, be strict instead of vague, cut lines that don't change behavior, keep skills focused, and test by running. Use when creating a new SKILL.md, reviewing or refining an existing skill, packaging taste or conventions into a reusable skill file, or diagnosing why a skill isn't affecting the agent's output. Triggers on: skill, SKILL.md, skill file, write a skill, create a skill, improve a skill, agent instructions, CLAUDE.md, AGENTS.md, system prompt rules, taste, conventions, decision tree, "the agent ignores my skill", "skill doesn't work", package my preferences, transfer taste.
 ---
 
 # Writing Skills

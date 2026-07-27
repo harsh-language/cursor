@@ -26,6 +26,8 @@ This repo is the **source of truth** for that personal kit — everything I want
 
 ### Skills (`skills/`)
 
+**Workflow (`harsh-*`)**
+
 | Skill | What it’s for |
 |-------|----------------|
 | `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, and re-diff until parity |
@@ -37,6 +39,11 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
 | `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
 | `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches) |
+
+**Motion (`ek-*`)** — from [emilkowalski/skills](https://github.com/emilkowalski/skills)
+
+| Skill | What it’s for |
+|-------|----------------|
 | `ek-design-eng` | Emil Kowalski design-eng taste: UI polish, animation decisions, invisible details |
 | `ek-review-animations` | Strict review of animation/motion code against Emil’s craft bar |
 | `ek-improve-animations` | Audit motion in a codebase; prioritized, self-contained fix plans |
@@ -44,9 +51,28 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `ek-animation-vocabulary` | Name a motion effect from a vague description (“what’s it called when…”) |
 | `ek-apple-design` | Apple interface + fluid motion principles, translated for the web |
 | `ek-pick-ui-library` | Pick a trusted library for a frontend task instead of hand-rolling |
-| `writing-skills` | Write/refine skill files so they change agent behavior (process, why, strict, focused) |
 
-Invoke in chat with `/skill-name` (e.g. `/harsh-figma-police`, `/harsh-cheatsheet`, `/harsh-git-sync`).
+**Design engineering (`ek2-*`)** — full UI craft suite (animations.dev course)
+
+| Skill | What it’s for |
+|-------|----------------|
+| `ek2-animations` | When/how to animate product UI — easing, duration, springs, performance |
+| `ek2-color` | OKLCH color, scales, contrast, gamut, Tailwind v4 tokens |
+| `ek2-component-design` | Composable React component APIs — compound components, props, state |
+| `ek2-design-foundations` | Core visual design judgment — hierarchy, spacing, typography, polish |
+| `ek2-design-vocabulary` | Precise design/UI terminology (index.how/to vocabulary) |
+| `ek2-engineering-vocabulary` | Name frontend engineering concepts from vague descriptions |
+| `ek2-forms-and-inputs` | Forms, inputs, buttons — validation, focus, iOS zoom, submit behavior |
+| `ek2-marketing-pages` | Landing pages, docs, blogs — motion restraint, SEO, performance |
+| `ek2-performance` | Fast UI — virtualization, GPU compositing, layout shift, perceived speed |
+| `ek2-surfaces` | Shadows, borders, gradients, depth, dark-mode surface treatment |
+| `ek2-touch-and-accessibility` | Touch targets, keyboard nav, screen readers, reduced motion |
+| `ek2-typography` | Fonts, type scale, leading, truncation, CSS-to-Tailwind lookup |
+| `ek2-ui-polish` | Invisible finish details — rendering, states, hit areas, scrollbars |
+| `ek2-ui-review` | Design-engineer UI code review against a craft bar |
+| `ek2-writing-skills` | Write skill files that actually change agent behavior |
+
+Invoke in chat with `/skill-name` using the **folder name** (e.g. `/ek2-color`, `/harsh-git-sync`).
 
 **Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-main` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README and saves dirty work first).
 
