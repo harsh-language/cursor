@@ -38,7 +38,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git` | Initialize local git tracking on the current folder (no GitHub) |
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
 | `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
-| `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches) |
+| `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, commit-all on current branch, push all branches) |
 
 **Motion (`ek-*`)** — from [emilkowalski/skills](https://github.com/emilkowalski/skills)
 
@@ -75,7 +75,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 
 Invoke in chat with `/skill-name` using the **folder name** (e.g. `/ek2-color`, `/harsh-git-sync`).
 
-**Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-main` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README and saves dirty work first).
+**Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-main` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README, commit-alls on the current branch, then pushes).
 
 ### Cheat sheets (`cheatsheets/`)
 

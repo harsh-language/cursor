@@ -1,6 +1,6 @@
 ---
 name: harsh-git-sync
-description: Mirror local git to a private GitHub repo (refresh README, save dirty work, push all branches).
+description: Mirror local git to a private GitHub repo (refresh README, commit-all on the current branch, push all branches).
 disable-model-invocation: true
 ---
 
@@ -41,14 +41,13 @@ Before save/mirror, update `README.md` at the repo root so it accurately summari
 4. Keep the README’s existing voice and structure when one already exists; don’t invent a new doc style. If there is no `README.md`, create a short one with purpose + inventories.
 5. Do **not** ask the user to approve README wording unless something is ambiguous (e.g. two folders could both be “the” inventory).
 
-## Step 0b — Save first if dirty
+## Step 0b — Commit-all on the current branch if dirty
 
-If this is a git repo and the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up) — including a README change from Step 0a:
+If the working tree is dirty (staged, unstaged, or untracked files that `git add -A` would pick up) — including a README change from Step 0a — **commit-all on the current branch** (shared rules). Then continue bootstrap / mirror.
 
-1. Run `harsh-git-main` fully — read `~/.cursor/skills/harsh-git-main/SKILL.md` and follow it to completion.
-2. Only then continue bootstrap / mirror.
+Never run `harsh-git-main` from this skill. Never checkout another branch. Never merge. Sync is a cloud save of whatever branch you are on; landing work onto `main` is a different button.
 
-If the tree is clean, skip save and continue.
+If the tree is clean, skip commit and continue.
 
 ## Bootstrap — not a git repo
 
@@ -97,10 +96,12 @@ If the repo already exists on GitHub but has no local remote, add `origin` to it
    git push origin --delete <branch>
    ```
 
+4. **Working tree must be clean.** If anything is still dirty (README leftover, sync-created files), commit-all on the current branch (shared rules) and push again (`git push --force-with-lease --set-upstream origin --all`). Repeat until `git status` is clean. Never leave the user with uncommitted sync edits.
+
 ## Done when
 
 - `README.md` matches the current repo inventory
-- Dirty work was saved via `harsh-git-main` first (if any)
+- Working tree is clean (README and any other sync edits are committed on the current branch)
 - Every local branch is on `origin`
 - Open PRs for work already on local `main` are merged/closed on GitHub
 - Remote-only branches (except trunk) are gone
