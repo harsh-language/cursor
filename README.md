@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-07-27
+**Last updated:** 2026-08-09
 
 ---
 
