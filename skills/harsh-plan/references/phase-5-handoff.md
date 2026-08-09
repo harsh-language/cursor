@@ -7,7 +7,6 @@ Load at Phase 5 only.
 - 18/18 sections `complete`
 - `cross_check_pass: true`
 - `completion_criteria_pass: true`
-- `taxonomy_status: current` with `last_updated` set on `taxonomy.md`
 
 ## 5.1 Request Stage 0 approval
 

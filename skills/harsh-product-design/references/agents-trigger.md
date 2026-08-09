@@ -28,7 +28,7 @@ Local product decisions live in `docs/product-design/`.
 
 ## Placement
 
-- Prefer inserting after the project map / taxonomy pointer if one exists.
+- Prefer inserting after the project map if one exists.
 - Otherwise place near other agent-facing workflow sections.
 - Do not duplicate if an equivalent trigger already exists; update paths only
   when migrating from a project-local skill.

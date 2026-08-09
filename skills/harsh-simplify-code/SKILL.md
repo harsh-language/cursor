@@ -161,7 +161,7 @@ Then proceed to Step 6.
 
 Runs on **every** simplify completion after Step 5. Code ask (Step 3b) must be finished first — **never interleave** meta questions with code checkpoint questions. Load [agent-guidance-gate.md](references/agent-guidance-gate.md).
 
-1. **Read project meta** — `AGENTS.md`, all `.cursor/rules/*.mdc`, all `.cursor/skills/*/SKILL.md`. Read-only context when present: `taxonomy.md`, stage / plan notes, `.cursor/rules/harsh-simplify-freeze.mdc`.
+1. **Read project meta** — `AGENTS.md`, all `.cursor/rules/*.mdc`, all `.cursor/skills/*/SKILL.md`. Read-only context when present: stage / plan notes, `.cursor/rules/harsh-simplify-freeze.mdc`.
 2. **Diff against product truth** — this run’s scope, what just shipped, conventions already in code (tokens, typography, icons, shells). Code is source of truth for components/tokens/styles.
 3. **Propose a short table** — for each item: action (`add` / `update` / `remove` / `keep`), target (`AGENTS.md` | rule path | skill path), one-line why, brief draft summary (not a novel). Use the proposal format in the reference.
 4. **Ask which items to apply** — batch approve/deny on that list. Do not write until the user confirms.

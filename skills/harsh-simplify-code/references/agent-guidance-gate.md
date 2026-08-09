@@ -2,7 +2,7 @@
 
 Load at Step 6 of `harsh-simplify-code`. Project-only. Do not touch user-level Cursor rules or global skills.
 
-Compare reality (code + stage + taxonomy) to meta docs. Propose changes. **Ask before writing.**
+Compare reality (code + stage) to meta docs. Propose changes. **Ask before writing.**
 
 This gate **steers agents**. It is not `ce-compound` / `ce-compound-refresh` — do not write `docs/solutions` or treat this as a learning capture pass.
 
@@ -14,7 +14,7 @@ This gate **steers agents**. It is not `ce-compound` / `ce-compound-refresh` —
 | Behavioral rules | `.cursor/rules/*.mdc` |
 | Process skills | `.cursor/skills/*/SKILL.md` |
 
-Also use (read-only context): `taxonomy.md`, implementation plan / stage notes, existing freeze rule if present (`.cursor/rules/harsh-simplify-freeze.mdc`).
+Also use (read-only context): implementation plan / stage notes, existing freeze rule if present (`.cursor/rules/harsh-simplify-freeze.mdc`).
 
 ## Decision rule
 
@@ -55,7 +55,7 @@ Then ask: which items to apply? (batch approve / deny)
 ## Workflow (Step 6)
 
 1. Read current meta — `AGENTS.md`, all `.cursor/rules/*.mdc`, all `.cursor/skills/*/SKILL.md`.
-2. Read product truth — taxonomy / stage notes when present, conventions encoded in code for this run’s scope.
+2. Read product truth — stage notes when present, conventions encoded in code for this run’s scope.
 3. Diff — missing, stale, duplicated, over-scoped, or should be removed?
 4. Propose the short table above.
 5. Ask permission; write only approved items.
@@ -67,7 +67,7 @@ Keep rules concise (~under 50 lines, one concern). Keep `AGENTS.md` as facts/poi
 
 - Implementing product features
 - Global / user Cursor settings (`~/.cursor` skills/rules outside the project)
-- Rewriting the blueprint or full taxonomy unless the user asks
+- Rewriting the blueprint unless the user asks
 - Creating per-component documentation skills
 - Re-opening frozen “keep as-is” code decisions unless the user asks
 - Capturing solved-problem docs (`docs/solutions`) — use `ce-compound` for that

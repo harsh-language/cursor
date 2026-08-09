@@ -23,10 +23,10 @@ Use `Task` with `subagent_type: generalPurpose` (needs file write). Do **not** u
 
 Give the sub-agent:
 
-1. Paths: artifact URLs/paths, `docs/application-blueprint/blueprint.md`, `blueprint-status.yaml`, `taxonomy.md`
+1. Paths: artifact URLs/paths, `docs/application-blueprint/blueprint.md`, `blueprint-status.yaml`
 2. Instruction: read [artifact-gap-analysis.md](artifact-gap-analysis.md) steps (this file's sibling — use full path in prompt)
-3. Instruction: read [artifacts.md](artifacts.md) for yaml schema and [taxonomy-template.md](taxonomy-template.md) for taxonomy shape
-4. **Harvest** — map artifact content into blueprint sections + distill taxonomy; set section statuses in yaml; record sources in `artifacts:`
+3. Instruction: read [artifacts.md](artifacts.md) for yaml schema
+4. **Harvest** — map artifact content into blueprint sections; set section statuses in yaml; record sources in `artifacts:`
 5. **Gap analysis** — coverage map, UI→domain inference, `implied_gaps` queue; set `artifact_gap_analysis.completed: true`
 6. **Do not** invent product/UI/rules — mark `partial` or queue gaps instead
 7. **Do not** ask the user questions
@@ -37,7 +37,6 @@ Sub-agent ends with a compact report, not raw artifact dumps:
 
 ```
 HARVEST: N sections strong / N partial / N empty; contradictions: [list or none]
-TAXONOMY: draft updated yes/no
 TOP_GAPS: 3–5 bullets (id + one-line question)
 FIRST_ELICIT: suggested next_section + one-line question preview
 NEEDS_USER_CONFIRM: contradictions or low-confidence mappings only

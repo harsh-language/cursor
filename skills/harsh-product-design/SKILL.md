@@ -89,8 +89,7 @@ Resolve conflicts in this order:
 
 1. The user's explicit goal and constraints.
 2. Verified product behavior and current system truth in code.
-3. Repository-canonical guidance: `AGENTS.md`, `taxonomy.md` (if present), and
-   `.cursor/rules/*.mdc`.
+3. Repository-canonical guidance: `AGENTS.md` and `.cursor/rules/*.mdc`.
 4. Accepted decisions in the project's `docs/product-design/references/` and
    `docs/product-design/exemplars/`.
 5. Verified adjacent shipped patterns in the same product area.
@@ -108,7 +107,6 @@ chosen mode only in notes / `Loaded:` — never ask the user to name it.
 Before proposing UI, read:
 
 - `AGENTS.md` (if present)
-- `taxonomy.md` (if present)
 - relevant `.cursor/rules/*.mdc`
 - the product logic that determines mutations, permissions, validation, errors,
   and side effects
@@ -191,7 +189,7 @@ surfaces and files this run touched — not a whole-repo harvest.
 5. Never mark a new rule `accepted` without human confirmation.
 6. Never promote a single one-off into a universal rule by itself.
 
-Standalone full Learn (whole codebase vs `taxonomy.md` and local references)
+Standalone full Learn (whole codebase vs local references)
 remains available when the user asks to harvest or update skill guidance —
 still selected automatically from that request, not named as a mode by the
 user.
@@ -206,8 +204,7 @@ Shape, Review, Copy, and Learn must not run this loop.
 ### Steps
 
 1. **Figma** — If a file/frame is linked, inspect it. Map what exists vs missing.
-2. **Siblings** — Read `taxonomy.md` (if present) and nearby screens for shells
-   and component homes.
+2. **Siblings** — Read nearby screens for shells and component homes.
 3. **Compose** — Reuse existing project shells and primitives. Do not invent
    parallel components for one screen.
 4. **Apply project rules** — Route to `.cursor/rules/*.mdc` via
@@ -248,7 +245,6 @@ only into `docs/product-design/`.
 1. Diff the current codebase against:
    - existing files in `docs/product-design/references/`
    - existing files in `docs/product-design/exemplars/`
-   - `taxonomy.md` build stage and screen map (if present)
 2. Collect raw observations first, each with a source file and, when useful, a
    commit hash.
 3. Classify each observation:

@@ -8,7 +8,6 @@ Load once at Phase 0.
 |------|------|
 | `docs/application-blueprint/blueprint.md` | **One meta doc** — 18-section blueprint + roadmap/stages |
 | `docs/application-blueprint/blueprint-status.yaml` | Agent tracker |
-| `taxonomy.md` | Human summary at repo root (only human doc at root) |
 | `docs/plans/*.md` | Per-stage plans from `ce-plan` (Stage 1+ only) |
 
 ## blueprint-status.yaml (minimal)
@@ -17,7 +16,6 @@ Load once at Phase 0.
 phase: in_progress
 product_name: ""
 completion_pct: 0
-taxonomy_status: not_started  # draft | current
 stage0_status: in_progress  # in_progress | complete
 roadmap_mapped: false
 next_build_stage: null
@@ -58,7 +56,3 @@ approved_at: null
 ```
 
 Full meta doc headings: [blueprint-template.md](blueprint-template.md).
-
-## Taxonomy distill
-
-§1 → What this is · §3 → Flows · §4+§12 → Screens · §2,5,6 → Key concepts · Find in code after build

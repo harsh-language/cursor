@@ -6,4 +6,4 @@ Before Phase 3. Read traceability + headings only.
 
 **Consistency:** screen name drift §3/4/12 · MVP vs roadmap conflict · rule vs flow contradiction · orphan component §11
 
-Fail → add to `gaps`, reopen section `partial`, fix in Phase 2. Taxonomy screens/flows must match.
+Fail → add to `gaps`, reopen section `partial`, fix in Phase 2.

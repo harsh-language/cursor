@@ -10,7 +10,7 @@ Run when the project is missing `docs/product-design/`.
    **Do not write `AGENTS.md` until the user confirms.**
 4. Continue the user's requested work using:
    - the new stubs
-   - code, `taxonomy.md`, and `.cursor/rules` when present
+   - code and `.cursor/rules` when present
 5. Let Auto-learn / Learn add only `status: proposed` entries afterward.
 
 ## Stub headers
