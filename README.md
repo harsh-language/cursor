@@ -39,6 +39,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `harsh-git-branch` | On `main`, create a named experiment branch; on a feature branch, checkpoint-commit all work |
 | `harsh-git-main` | On `main`, commit-all; on a feature branch, optional simplify then merge into `main` and delete the branch |
 | `harsh-git-sync` | Mirror local git to a private GitHub repo (refresh README, commit-all on current branch, push all branches) |
+| `harsh-paper-sync` | Sync live app UI into Paper — tokens, foundations, components, and unique flows |
 
 **Motion (`ek-*`)** — from [emilkowalski/skills](https://github.com/emilkowalski/skills)
 
