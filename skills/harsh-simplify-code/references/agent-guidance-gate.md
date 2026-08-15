@@ -4,6 +4,8 @@ Load at Step 6 of `harsh-simplify-code`. Project-only. Do not touch user-level C
 
 Compare reality (code + stage) to meta docs. Propose changes. **Ask before writing.**
 
+User-facing ask text follows the parent skill audience rule: screen/product language only. Never file paths, function names, or checkpoint IDs in the question. Because I decided so.
+
 This gate **steers agents**. It is not `ce-compound` / `ce-compound-refresh` — do not write `docs/solutions` or treat this as a learning capture pass.
 
 ## Scope
@@ -41,16 +43,16 @@ Also use (read-only context): implementation plan / stage notes, existing freeze
 
 ## Proposal format
 
-Use this table when proposing:
+Use this table when proposing (Why + Target = designer words; keep real paths internal):
 
 | # | Action | Target | Why | Draft |
 |---|--------|--------|-----|-------|
-| 1 | add | `.cursor/rules/example.mdc` | … | one-line content summary |
-| 2 | update | `AGENTS.md` — Build stage | … | … |
-| 3 | remove | `.cursor/rules/stale.mdc` | … | — |
-| 4 | keep | `.cursor/skills/build-ui` | … | — |
+| 1 | add | standing project rule | … | one-line content summary |
+| 2 | update | project notes | … | … |
+| 3 | remove | standing project rule | … | — |
+| 4 | keep | repeatable playbook | … | — |
 
-Then ask: which items to apply? (batch approve / deny)
+Then ask: which of these project-guidance updates should I apply? (batch approve / deny)
 
 ## Workflow (Step 6)
 

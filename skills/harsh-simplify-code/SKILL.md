@@ -13,6 +13,8 @@ After the code pass, runs a short **agent guidance gate**: compare project meta 
 
 Prioritize readable, explicit code over compact solutions. Fewer lines is not the goal.
 
+**Audience.** The user is a product designer. Every question to them is about the screen, not the code. Never say file paths, function names, variable names, token names, or checkpoint IDs (R1, Q3, T1, …) in user-facing text. Keep those IDs internal for tagging only. Because I decided so.
+
 Load [checkpoint-policy.md](references/checkpoint-policy.md) at Step 2. Example policy validation: [sanity-check-u1-homepage.md](references/sanity-check-u1-homepage.md). Load [agent-guidance-gate.md](references/agent-guidance-gate.md) at Step 6.
 
 ## Step 0: Initialize
@@ -114,13 +116,23 @@ Before each fix, confirm it preserves behavior: same output for every input, sam
 
 ### 3b — Ask loop
 
-For each `ask`-tagged finding **not** tagged `frozen`, **one question per turn**:
+For each `ask`-tagged finding **not** tagged `frozen`, **one question per turn**.
 
-- Ask in plain language. Describe which part of the screen/component is affected and what would change, using everyday words — not variable, style, or function names.
-- Options: **apply** / **keep as-is** / **extract to named rule + test** (preferred for Q3, Q6, T1–T3)
-- Do not batch multiple ask items in one question
+Draft, then check: if the question contains a file path, function/variable/token name, or checkpoint ID → rewrite before sending. Never send the technical draft.
 
-Log `frozen` matches in the summary (e.g. "1 frozen from harsh-simplify-freeze rule") — no user turn consumed.
+Template (always):
+
+> On the [screen / control], this would [visual or interaction change]. Keep it, or let me tidy it?
+
+Options (user-facing labels only):
+
+- **Keep it**
+- **Tidy it**
+- **Make it a shared pattern** (use this third option for Q3, Q6, T1–T3 — preferred when two similar bits of UI should stay consistent)
+
+Do not batch multiple ask items in one question.
+
+Log `frozen` matches in the summary (e.g. "1 frozen from harsh-simplify-freeze rule") — no user turn consumed. Map answers back internally: Keep it → keep as-is · Tidy it → apply · Make it a shared pattern → extract to named rule + test.
 
 ### 3c — Apply confirmed
 
@@ -163,8 +175,8 @@ Runs on **every** simplify completion after Step 5. Code ask (Step 3b) must be f
 
 1. **Read project meta** — `AGENTS.md`, all `.cursor/rules/*.mdc`, all `.cursor/skills/*/SKILL.md`. Read-only context when present: stage / plan notes, `.cursor/rules/harsh-simplify-freeze.mdc`.
 2. **Diff against product truth** — this run’s scope, what just shipped, conventions already in code (tokens, typography, icons, shells). Code is source of truth for components/tokens/styles.
-3. **Propose a short table** — for each item: action (`add` / `update` / `remove` / `keep`), target (`AGENTS.md` | rule path | skill path), one-line why, brief draft summary (not a novel). Use the proposal format in the reference.
-4. **Ask which items to apply** — batch approve/deny on that list. Do not write until the user confirms.
+3. **Propose a short table** — for each item: action (`add` / `update` / `remove` / `keep`), target in designer words (project notes / standing rule / repeatable playbook — not raw paths), one-line why in screen/product language, brief draft summary. Use the proposal format in the reference.
+4. **Ask which items to apply** — same audience rule as 3b. Batch approve/deny. If the ask contains code identifiers or checkpoint IDs → rewrite before sending. Do not write until the user confirms.
 5. **Write only approved items.** Rules ~under 50 lines, one concern. `AGENTS.md` = facts/pointers, not behavior dumps. New skills = repeatable multi-step processes only.
 6. **Append meta outcome** to the run summary (applied / skipped / none).
 
@@ -182,6 +194,7 @@ If nothing drifted, say so and skip writes.
 ## Hard stops
 
 - Never auto-apply any `ask` checkpoint (R1–R3, Q1, Q3, Q6, Q7, E3, T1–T3)
+- Never send a user-facing question that names files, functions, variables, tokens, or checkpoint IDs — rewrite first
 - Never edit `src/theme/tokens.ts` by hand
 - Never change `typography.*` token choice without ask confirmation
 - Never merge similar UI without a named variant rule (+ contract test if shared primitive)

@@ -30,7 +30,7 @@ This repo is the **source of truth** for that personal kit — everything I want
 
 | Skill | What it’s for |
 |-------|----------------|
-| `harsh-figma-police` | Lock a Figma UI target, map diffs vs code, fix, and re-diff until parity |
+| `harsh-figma-police` | Lock a Figma or Paper UI target, map diffs vs code, fix, and re-diff until parity |
 | `harsh-cheatsheet` | Create, update, or combine personal cheat sheets in `~/.cursor/cheatsheets/` |
 | `harsh-simplify-code` | Pre-PR cleanup; auto-fixes low-risk stuff, asks before UI/behavior-risk changes |
 | `harsh-plan` | Stage 0 discovery into one blueprint+roadmap doc; per-stage `ce-plan` for builds |
