@@ -2,7 +2,7 @@
 
 Personal kit for **Cursor on my machines**: custom skills and cheat sheets I use while working in projects.
 
-**Last updated:** 2026-08-16
+**Last updated:** 2026-09-20
 
 ---
 
@@ -74,6 +74,12 @@ This repo is the **source of truth** for that personal kit — everything I want
 | `ek2-ui-review` | Design-engineer UI code review against a craft bar |
 | `ek2-writing-skills` | Write skill files that actually change agent behavior |
 
+**Communication** — from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)
+
+| Skill | What it’s for |
+|-------|----------------|
+| `i-have-adhd` | ADHD-shaped replies (next action first, numbered steps, restate state). Slash `/i-have-adhd` for the full playbook; **always on** via `rules/i-have-adhd.mdc` |
+
 Invoke in chat with `/skill-name` using the **folder name** (e.g. `/ek2-color`, `/harsh-git-sync`).
 
 **Git workflow (solo):** local is home base; GitHub is a save file. Typical loop: `/harsh-git-branch` → work → `/harsh-git-main` → `/harsh-git-sync` (or just `/harsh-git-sync`, which refreshes README, commit-alls on the current branch, then pushes).
@@ -91,6 +97,7 @@ Invoke in chat with `/skill-name` using the **folder name** (e.g. `/ek2-color`, 
 | File | Topic |
 |------|--------|
 | `search-verification.mdc` | Never treat one empty search as proof of absence; dual-verify before claiming missing |
+| `i-have-adhd.mdc` | Always-on ADHD output style (pairs with `/i-have-adhd` skill) |
 
 When you add or rename skills/sheets/rules, `/harsh-git-sync` refreshes this README automatically (and you can still edit it by hand anytime).
 
@@ -103,9 +110,12 @@ The real files live in this repo. Cursor reads them through shortcuts (symlinks)
 ```
 ~/.cursor/skills      →  this repo’s skills/
 ~/.cursor/cheatsheets →  this repo’s cheatsheets/
+~/.cursor/rules       →  this repo’s rules/   (always-on `.mdc` rules)
 ```
 
 Edit either path — same files. Commit and push here when something changes.
+
+**Always-on ADHD style:** `rules/i-have-adhd.mdc` has `alwaysApply: true`. With the rules symlink (or the same rule pasted under **Cursor Settings → Rules → User Rules**), agents shape replies for ADHD every chat without typing `/i-have-adhd`. Say `stop adhd mode` / `normal mode` to pause for that chat.
 
 ---
 
@@ -119,14 +129,15 @@ git clone git@github.com:harsh-language/cursor.git ~/Code/cursor
 ```
 
 3. Point Cursor at the repo folders with symlinks  
-   (only if `~/.cursor/skills` and `~/.cursor/cheatsheets` don’t already exist as real folders):
+   (only if those paths don’t already exist as real folders):
 
 ```bash
 ln -s ~/Code/cursor/skills ~/.cursor/skills
 ln -s ~/Code/cursor/cheatsheets ~/.cursor/cheatsheets
+ln -s ~/Code/cursor/rules ~/.cursor/rules
 ```
 
-4. Restart Cursor or open a new chat. You should see `/harsh-cheatsheet` and friends.
+4. Restart Cursor or open a new chat. You should see `/harsh-cheatsheet` and friends. ADHD output style should apply without invoking a skill (from `rules/i-have-adhd.mdc`).
 
 **If a symlink step fails** because a real folder already exists there: move or rename the old folder first, then run the `ln -s` commands again.
 
